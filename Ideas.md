@@ -1,10 +1,5 @@
 *** Ideas for passion project:
 
-** A game such as Hangman or quiz or tic tac toe or card game with user interface?
-
-** Build a REST API
-
-** To-do app
 
 ** Expense manager 
 
@@ -16,6 +11,18 @@ The backend of this app requires a database that allows the data to be stored, m
 This app allows users to add notes, enter photographs/videos of hand written notes, (extension - enable search feature to handwritten notes using AI/NN??), track changes, ability to use apple pencil?.
 Development requires a big repository/cloud to store notes & other high storage itesm such as videos/graphics/images etc.
 
-** Facial recognition app (ML/DNN??) - complicated??
+** Facial recognition app (ML/DNN??)
 
-** News site - web crawling & web scraping?
+** News site - web crawling / web scraping?
+
+This app crawls news websites (any or given) and gathers links from it.
+
+** A game such as Hangman or quiz or tic tac toe or card game with user interface
+
+** Build a REST API
+
+This app allows users to access a REST API and do search, filtering, authentication etc.
+
+** To-do app
+
+This app allows multiple users to track to-do, set reminders
