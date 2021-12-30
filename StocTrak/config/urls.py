@@ -7,7 +7,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('pages.urls')),
     path('blog/',include('blog.urls')),
-    path('contactus/', include('contactus.urls')),
+    path('sendmail/', include('sendmail.urls')),
 ]
 
 if settings.DEBUG:
