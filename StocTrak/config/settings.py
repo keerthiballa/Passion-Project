@@ -16,7 +16,6 @@ ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = [
-    'contactus.apps.SendemailConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,7 +36,7 @@ INSTALLED_APPS = [
     'accounts',
     'pages',
     'blog',
-    'contactus',
+    'sendmail'
 ]
 
 DEFAULT_FROM_EMAIL = 'stoctrak@gmail.com'
