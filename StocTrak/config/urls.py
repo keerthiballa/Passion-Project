@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('blog/',include('blog.urls')),
     path('sendmail/', include('sendmail.urls')),
+    path('stocks/', include('stocks.urls')),
 ]
 
 if settings.DEBUG:

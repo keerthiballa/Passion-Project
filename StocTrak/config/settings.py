@@ -36,11 +36,18 @@ INSTALLED_APPS = [
     'accounts',
     'pages',
     'blog',
-    'sendmail'
+    'sendmail',
+    'stocks',
 ]
 
 DEFAULT_FROM_EMAIL = 'stoctrak@gmail.com'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'StocTrak'
+EMAIL_HOST_PASSWORD='Admin@123!'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_USE_SSL=False
 
 # MIDDLEWARE
 # ------------------------------------------------------------------------------
@@ -145,7 +152,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 # EMAIL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # DJANGO-DEBUG-TOOLBAR CONFIGS
 # ------------------------------------------------------------------------------
