@@ -1,7 +1,19 @@
+# from django.urls import path
+# from . import views
+
+# urlpatterns = [
+#     path('',views.index,name='index'),
+#     path('<str:tid>',views.ticker,name='ticker'),
+# ]
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('',views.index,name='index'),
-    path('<str:tid>',views.ticker,name='ticker'),
+	path('', views.home, name="home"),
+	path('add_stock.html', views.add_stock, name="add_stock"),
+	path('delete/<stock_id>', views.delete, name="delete"),
+	path('delete_stock.html', views.delete_stock, name="delete_stock"),
+
+    
 ]

@@ -1,0 +1,106 @@
+{% extends '_base.html' %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">Stock Portfolio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_stock' %}">Add Stock</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'delete_stock' %}">Delete Stock</a>
+        </li>
+        
+      </ul>
+      <form action="{% url 'home' %}" class="form-inline my-2 my-lg-0" method="POST">
+          {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="Get Stock Quote" aria-label="Search" name="ticker">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Stock Quote</button>
+      </form>
+    </div>
+  </nav>
+      
+      <div class="container">
+          <br/>
+  
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert alert-warning alert-dismissable" role="alert">
+                      <button class="close" data-dismiss="alert">
+                          <small><sup>x</sup></small>
+                      </button>
+                      {{ message }}
+                  </div><br/>
+              {% endfor%}
+  
+          {% endif %}
+  
+
+
+{% if ticker %}
+	{{ ticker }}
+{% endif %}
+
+{% if api %}
+	{% if api == "Error..." %}
+		There was a problem with your ticker symbol, please try again...
+	{% else %}
+		
+		<h1>{{ api.companyName }}</h1><br/>
+		Price: ${{ api.latestPrice }}<br/>
+		Previous Close: {{ api.previousClose }}<br/>
+		Market Cap: {{ api.marketCap }}<br/>
+		YTD Change: {{ api.ytdChange }}<br/>
+		52Wk High: {{ api.week52High }}<br/>
+		52 Wk Low: {{ api.week52Low }}<br/>
+        About the company: {{ content.meta.description }}
+       
+	{% endif %}
+{% endif %}
+
+<div data-src="tmpfile.html"></div>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Company Name</th>
+        <th scope="col">Stock Price</th>
+        <th scope="col">Previous Close</th>
+        <th scope="col">Market Cap</th>
+        <th scope="col">YTD Change</th>
+        <th scope="col">52Wk High</th>
+        <th scope="col">52Wk Low</th>
+              
+      </tr>
+    </thead>
+    <tbody>
+
+       
+  {% if ticker %}
+            {% for list_item in output %}
+                    <tr>
+                      <th scope="row">{{ list_item.companyName }}</th>
+                      <td>${{ list_item.latestPrice }}</td>
+                      <td>${{ list_item.previousClose }}</td>
+                      <td>${{ list_item.marketCap }}</td>
+                      <td>{{ list_item.ytdChange }}%</td>
+                      <td>${{ list_item.week52High }}</td>
+                      <td>${{ list_item.week52Low }}</td>
+                    </tr>
+              {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+  
+  <br/><br/>
+
+     
+    </tbody>
+</table>
+ 
+
+{% endblock %}
